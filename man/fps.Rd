@@ -71,6 +71,7 @@ out <- fps(cor(wine), ndim = 2, covPercent = 1)
 print(out)
 plot(out)
 
+\dontrun{
 # Create a synthetic dataset by adding noise variables to the wine data
 j <- sample(1:ncol(wine), size = 500 - ncol(wine), replace = TRUE)
 noise <- apply(wine[, j], 2, sample, replace = TRUE)
@@ -78,7 +79,6 @@ colnames(noise) <- rep('noise', ncol(noise))
 x <- cbind(wine, noise)
 out <- fps(cor(x), ndim = 2, maxnvar = 50, verbose = 1)
 
-\dontrun{
 # Choose lambda by cross-validation (this may take a few minutes)
 cvout <- cv(out, x, FUN = cor, verbose = 1)
 plot(cvout)

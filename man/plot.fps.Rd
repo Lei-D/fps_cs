@@ -18,7 +18,7 @@ This function plots the regularization path
 }
 \examples{
 data(wine)
-out <- fps(cor(wine), ndim = 2)
+out <- fps(cor(wine), ndim = 2, covPercent = 1)
 plot(out)
 }
 
